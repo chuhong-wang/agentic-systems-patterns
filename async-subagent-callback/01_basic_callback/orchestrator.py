@@ -22,7 +22,7 @@ class CallbackPayload(BaseModel):
 async def start_task():
     task_id = str(uuid.uuid4())
 
-    print(f"[Parent] Starting task: {task_id}")
+    print(f"[Orchestrator] Starting task: {task_id}")
 
     # Tell the subagent to start working.
     # This request returns immediately after the subagent accepts the task.
@@ -35,7 +35,7 @@ async def start_task():
             },
         )
 
-    print(f"[Parent] Subagent response: {response.json()}")
+    print(f"[Orchestrator] Subagent response: {response.json()}")
 
     return {
         "task_id": task_id,
@@ -46,10 +46,10 @@ async def start_task():
 @app.post("/callback")
 async def receive_callback(payload: CallbackPayload):
     print("\n================================")
-    print("[Parent] CALLBACK RECEIVED")
-    print(f"[Parent] Task ID: {payload.task_id}")
-    print(f"[Parent] Status: {payload.status}")
-    print(f"[Parent] Result: {payload.result}")
+    print("[Orchestrator] CALLBACK RECEIVED")
+    print(f"[Orchestrator] Task ID: {payload.task_id}")
+    print(f"[Orchestrator] Status: {payload.status}")
+    print(f"[Orchestrator] Result: {payload.result}")
     print("================================\n")
 
     return {
