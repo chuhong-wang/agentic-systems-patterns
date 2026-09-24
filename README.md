@@ -4,7 +4,7 @@ The examples are intentionally simplified and are not the production implementat
 
 | Component | Problem | Status |
 |---|---|---|
-| async Subagent Callback | Async task completion | Available |
-| agent-managed sandboxes | dynamic allocation | TODO |
-| artifact Registry | structured output | TODO |
+| [subagent callback](./async-subagent-callback) | subagent completion signal + reliability | done |
+| agent-managed sandboxes | dynamic resources allocation | TODO |
 | failure Recovery | layers of Fault tolerance | TODO |
+| artifact Registry | structured output | TODO |
